@@ -6,7 +6,7 @@
 * `docker load < docker-hbase.tar`  
  
 ### 3. 启动一个容器作为hadoop master节点  
-* `docker run -it --name hadoop-master -h hadoop-master -d -P -p 50070:50070 -p 8088:8088 -p 60010:60010 -p 8889:8889 -v /data1:/data1 /haohan/hbase:1.0`
+* `docker run -it --name hadoop-master -h hadoop-master -d -P -p 50070:50070 -p 8088:8088 -p 60010:60010 -p 8889:8889 -v /data1:/data1 haohan/hbase:1.0`
 
 ### 4. 启动三个容器作为hadoop slave节点(N=1,2,3)  
 * `docker run -it --name hadoop-slaveN -h hadoop-slaveN -d -v /data1:/data1 haohan/hbase:1.0`  

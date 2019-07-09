@@ -25,12 +25,9 @@
 
 ### 7. 进入hadoop-master容器，启动hadoop服务  
 * `docker exec -it -u root hadoop-master /bin/bash`
-* **格式化namenode:** `hdfs namenode -format`  
-* **启动hdfs:** `/usr/local/hadoop/sbin/start-dfs.sh`  
-* **关闭hdfs:** `/usr/local/hadoop/sbin/stop-dfs.sh`  
-* **启动yarn:** `/usr/local/hadoop/sbin/start-yarn.sh`
-* **关闭yarn:** `/usr/local/hadoop/sbin/stop-yarn.sh`  
+* ***格式化namenode:*** `hdfs namenode -format`  
+* ***启动hdfs:*** `/usr/local/hadoop/sbin/start-dfs.sh`  
+* ***启动yarn:*** `/usr/local/hadoop/sbin/start-yarn.sh` 
 
-### 8. 启动和关闭hbase服务
-* **启动hbase: `start-hbase.sh`  
-* **关闭hbase: `stop-hbase.sh`  
+### 8. 启动hbase服务
+* ***启动hbase:*** `start-hbase.sh`   

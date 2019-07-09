@@ -1,5 +1,4 @@
-#  docker-hbase
-## docker部署hbase集群
+# docker部署hbase集群
 
 ### 1. 安装docker，版本要求1.13.1  
  

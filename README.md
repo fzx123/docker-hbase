@@ -17,16 +17,33 @@
 ### 5. 启动三个容器作为hadoop slave节点(N=1,2,3)  
 * `docker run -it --name hadoop-slaveN -h hadoop-slaveN -d -v /home/hdfs:/home/hdfs haohan/hbase:2.0`  
 
-### 6. 进入hadoop master容器，修改/etc/hosts文件和hadoop配置文件
+### 6. 进入hadoop master容器，修改/etc/hosts文件和hadoop配置文件  
+* `docker exec -it -u root hadoop-master /bin/bash`
 * `echo 172.17.0.2 hadoop-master >> /etc/hosts`  
 * `echo 172.17.0.3 hadoop-slave1 >> /etc/hosts`  
 * `echo 172.17.0.4 hadoop-slave2 >> /etc/hosts`  
 * `echo 172.17.0.5 hadoop-slave3 >> /etc/hosts`    
+* `exit`(退出hadoop-master容器)
 
-### 7. 进入hadoop slave容器，修改zookeeper的myid文件并启动zookeeper服务(N=1,2,3)
+### 7. 进入hadoop slave容器，修改/etc/hosts文件和hadoop配置文件，修改zookeeper的myid文件并启动zookeeper服务(N=1,2,3)
 * `docker exec -it -u root hadoop-slaveN /bin/bash`  
+* `echo 172.17.0.2 hadoop-master >> /etc/hosts`  
+* `echo 172.17.0.3 hadoop-slave1 >> /etc/hosts`  
+* `echo 172.17.0.4 hadoop-slave2 >> /etc/hosts`  
+* `echo 172.17.0.5 hadoop-slave3 >> /etc/hosts`    
+* `vim /usr/local/hadoop/etc/hadoop/hdfs-site.xml` 
+```
+<configuration>   
+    <property>  
+        <name>dfs.datanode.data.dir</name>  
+        <value>file:/home/hdfs/data/datanodeN</value>  
+    </property>   
+</configuration> 
+```
+
 * `echo N > /usr/local/zookeeper/data/myid`  
-* `/usr/local/zookeeper/bin/zkServer.sh start`   
+* `/usr/local/zookeeper/bin/zkServer.sh start`
+
 
 ### 8. 进入hadoop-master容器，启动hadoop服务  
 * `docker exec -it -u root hadoop-master /bin/bash`

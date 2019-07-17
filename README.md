@@ -21,8 +21,7 @@
 * `echo 172.17.0.2 hadoop-master >> /etc/hosts`  
 * `echo 172.17.0.3 hadoop-slave1 >> /etc/hosts`  
 * `echo 172.17.0.4 hadoop-slave2 >> /etc/hosts`  
-* `echo 172.17.0.5 hadoop-slave3 >> /etc/hosts`  
-* `vim /usr/local/hadoop/etc/hadoop/hdfs-site.xml`  
+* `echo 172.17.0.5 hadoop-slave3 >> /etc/hosts`    
 
 ### 7. 进入hadoop slave容器，修改zookeeper的myid文件并启动zookeeper服务(N=1,2,3)
 * `docker exec -it -u root hadoop-slaveN /bin/bash`  

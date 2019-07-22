@@ -3,7 +3,7 @@
 ### 1. 安装docker，版本要求1.13.1  
  
 ### 2. 加载image  
-* `docker load < docker-hbase.tar`  
+* `docker load < docker-hbase-3.0.tar`  
 
 ### 3. 创建目录作为hadoop的数据节点
 * `mkdir -p /home/hdfs/data/namenode`  

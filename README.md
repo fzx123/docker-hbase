@@ -49,7 +49,7 @@
 
 ### 8. 进入hadoop-master容器，启动hadoop服务  
 * `docker exec -it -u root hadoop-master /bin/bash`
-* `hdfs namenode -format`  
+* `hdfs namenode -format`(namenode格式化，第一次启动集群之前需要执行)  
 * `/usr/local/hadoop/sbin/start-dfs.sh`  
 * `/usr/local/hadoop/sbin/start-yarn.sh` 
 

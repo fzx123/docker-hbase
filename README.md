@@ -12,10 +12,12 @@
 * `mkdir -p /home/hdfs/data/datanode3`
 
 ### 4. 启动一个容器作为hadoop master节点  
-* `docker run -it --name hadoop-master -h hadoop-master -d -P -p 50070:50070 -p 8088:8088 -p 60010:60010 -p 8889:8889 -v /home/hdfs:/home/hdfs haohan/hbase:2.0`
+* `docker run -it --name hadoop-master -h hadoop-master -d -P -p 50070:50070 -p 8088:8088 -p 60010:60010 -p 8889:8889 -v /home/hdfs:/home/hdfs haohan/hbase:3.0`
 
 ### 5. 启动三个容器作为hadoop slave节点(N=1,2,3)  
-* `docker run -it --name hadoop-slaveN -h hadoop-slaveN -d -v /home/hdfs:/home/hdfs haohan/hbase:2.0`  
+* `docker run -it --name hadoop-slave1 -h hadoop-slave1 -d -v /home/hdfs:/home/hdfs haohan/hbase:3.0`  
+* `docker run -it --name hadoop-slave2 -h hadoop-slave2 -d -v /home/hdfs:/home/hdfs haohan/hbase:3.0`  
+* `docker run -it --name hadoop-slave3 -h hadoop-slave3 -d -v /home/hdfs:/home/hdfs haohan/hbase:3.0`
 
 ### 6. 进入hadoop master容器，修改/etc/hosts文件和hadoop配置文件  
 * `docker exec -it -u root hadoop-master /bin/bash`

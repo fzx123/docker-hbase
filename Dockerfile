@@ -1,6 +1,6 @@
 FROM centos:7.6.1810
 
-MAINTAINER fangzhongxiang <fangzhongxiang@haohandata.com.cn>
+MAINTAINER luxunxianshenaimoyu <luxunxianshenaimoyu@163.com>
 
 WORKDIR /root
 

@@ -2,10 +2,14 @@
 
 ##### 1. 安装并启动docker
 ```
-wget https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-1.12.6-1.el7.centos.x86_64.rpm  
-wget https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-selinux-1.12.6-1.el7.centos.noarch.rpm  
-yum localinstall -y dokcer-engine*  
-systemctl daemon-reload  
+wget https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-1.12.6-1.el7.centos.x86_64.rpm
+
+wget https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-selinux-1.12.6-1.el7.centos.noarch.rpm
+
+yum localinstall -y dokcer-engine*
+
+systemctl daemon-reload
+
 systemctl strart docker  
 ```
 

@@ -1,7 +1,7 @@
 version: '2.1'
 services: 
   hadoop-master:
-    image: haohan/hbase:2.0.0
+    image: docker/hbase:2.0.0
     container_name: hadoop-master
     restart: always
     tty: true
@@ -37,7 +37,7 @@ services:
     storage_opt:
       size: '30G'
   hadoop-slave2:
-    image: haohan/hbase:2.0.0
+    image: docker/hbase:2.0.0
     container_name: hadoop-slave2
     restart: always
     hostname: hadoop-slave2
@@ -56,7 +56,7 @@ services:
     storage_opt:
       size: '30G'
   hadoop-slave3:
-    image: haohan/hbase:2.0.0
+    image: docker/hbase:2.0.0
     container_name: hadoop-slave3
     restart: always
     hostname: hadoop-slave3

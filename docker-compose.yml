@@ -1,0 +1,79 @@
+version: '2.1'
+services: 
+  hadoop-master:
+    image: haohan/hbase:2.0.0
+    container_name: hadoop-master
+    restart: always
+    tty: true
+    hostname: hadoop-master
+    networks:
+      mynet:
+        ipv4_address: 172.16.0.100
+    extra_hosts:
+      - "hadoop-slave1:172.16.0.101"
+      - "hadoop-slave2:172.16.0.102"
+      - "hadoop-slave3:172.16.0.103"
+    volumes:
+      - /home/hdfs:/home/hdfs
+    storage_opt:
+      size: '30G'
+  hadoop-slave1:
+    image: haohan/hbase:2.0.0
+    container_name: hadoop-slave1
+    restart: always
+    tty: true
+    hostname: hadoop-slave1
+    environment:
+      N_NUM: 1
+    networks:
+      mynet:
+        ipv4_address: 172.16.0.101
+    extra_hosts:
+      - "hadoop-master:172.16.0.100"
+      - "hadoop-slave2:172.16.0.102"
+      - "hadoop-slave3:172.16.0.103"
+    volumes:
+      - /home/hdfs:/home/hdfs
+    storage_opt:
+      size: '30G'
+  hadoop-slave2:
+    image: haohan/hbase:2.0.0
+    container_name: hadoop-slave2
+    restart: always
+    hostname: hadoop-slave2
+    tty: true
+    environment:
+      N_NUM: 2
+    networks:
+      mynet:
+        ipv4_address: 172.16.0.102
+    extra_hosts:
+      - "hadoop-master:172.16.0.100"
+      - "hadoop-slave1:172.16.0.101"
+      - "hadoop-slave3:172.16.0.103"
+    volumes:
+      - /home/hdfs:/home/hdfs
+    storage_opt:
+      size: '30G'
+  hadoop-slave3:
+    image: haohan/hbase:2.0.0
+    container_name: hadoop-slave3
+    restart: always
+    hostname: hadoop-slave3
+    tty: true
+    environment:
+      N_NUM: 3
+    networks:
+      mynet:
+        ipv4_address: 172.16.0.103
+    extra_hosts:
+      - "hadoop-master:172.16.0.100"
+      - "hadoop-slave1:172.16.0.101"
+      - "hadoop-slave2:172.16.0.102"
+    volumes:
+      - /home/hdfs:/home/hdfs
+    storage_opt:
+      size: '30G'
+networks:
+  mynet: 
+    external: true

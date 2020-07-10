@@ -84,7 +84,7 @@ start-hbase.sh
 #####  导出镜像
 
 ```
-docker save -o docker-hbase-2.0.0.tar haohan/hbase:2.0.0
+docker save -o docker-hbase-2.0.0.tar docker/hbase:2.0.0
 ```
 
 ##### 停止Hadoop集群
